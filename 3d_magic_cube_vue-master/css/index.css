@@ -1,0 +1,77 @@
+body {
+	display: flex;
+	/* 垂直剧居 */
+	justify-content:center;
+	/* 水平居中 */
+	align-items: center;
+	/* 必须设置body高度 */
+	height: 100vh;
+}
+.box {
+	/* 相对定位 */
+	position: relative;
+	/* 3d样式变换 */
+	transform-style: preserve-3d;
+	/* 设置立方体的三维立体视角 */
+	perspective: 10000px;
+	/* 调用动画 */
+	animation: rotate 10s linear infinite alternate; 
+}
+ul {
+	/* 取消无序列表序号 */
+	list-style: none;
+	width: 210px;
+	height: 210px;
+	/* 取消无序列表默认样式 */
+	padding: 5px;
+	/* 背景颜色设置为透明 */
+	background: transparent;
+	/* 绝对定位 */
+	position: absolute;
+}
+li {
+	/* 宽度 */
+	width: 60px;
+	/* 高度 */
+	height: 60px;
+	/* 字体颜色 */
+	color: white;
+	/* 字体大小 */
+	font-size: 28px;
+	/* 左浮动 */
+	float: left;
+	/* 外边距 */
+	margin: 5px;
+	/* 设置圆角 */
+	border-radius: 20px;
+	/* 文字水平居中 */
+	text-align: center;
+	/* 文字垂直居中 */
+	line-height: 60px;
+}
+
+/* 旋转六面成立方体 */
+.front { transform: translateZ(120px); }
+.back { transform: translateZ(-120px); }
+.left { transform: rotateY(-90deg) translateZ(120px); }
+.right { transform: rotateY(90deg) translateZ(120px); }
+.top { transform: rotateX(90deg) translateZ(120px); }
+.bottom { transform: rotateX(-90deg) translateZ(120px); }
+
+/* 修改六面颜色 */
+.front li { background: red; }
+.back li { background: green; }
+.left li { background: blue; }
+.right li { background: purple; }
+.top li { background: yellow; }
+.bottom li { background: darkcyan; }
+
+/* 定义动画 */
+@keyframes rotate {
+	0% { transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg); }
+	20% { transform: rotateY(30deg) rotateX(40deg) rotateZ(20deg); }
+	40% { transform: rotateY(-60deg) rotateX(-40deg) rotateZ(-20deg); }
+	60% { transform: rotateY(145deg) rotateX(80deg) rotateZ(10deg); }
+	80% { transform: rotateY(90deg) rotateX(60deg) rotateZ(-20deg); }
+	100% { transform: rotateY(135deg) rotateX(-45deg) rotateZ(30deg); }
+ }
